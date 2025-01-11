@@ -95,8 +95,10 @@ MONGO_URI=mongodb+srv://<usuario>:<contraseña>@cluster0.mongodb.net/Cantunia?re
 |--------|----------------------|------------------------------------------|
 | POST   | `/api/cantunia/add`  | Agregar un nuevo registro               |
 | DELETE | `/api/cantunia/:id`  | Eliminar un registro por ID             |
+| GET    | `/api/cantunia/all`  | Obtener todos los registros             |
 | POST   | `/api/father/add`    | Agregar un nuevo registro               |
 | DELETE | `/api/father/:id`    | Eliminar un registro por ID             |
+| GET    | `/api/father/all`    | Obtener todos los registros             |
 
 ---
 
