@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Modulos node para crear servidor
 var express = require('express');
@@ -6,10 +6,10 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 
 // Ejecutar express (http)
-var app = express()
+var app = express();
 
 // Cargar ficheros rutas
-//var routes = require('./routes/routes');
+var routes = require('./routes/routes');
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended:false}));
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // Añadir prefijos a rutas / Cargar rutas
-//app.use('/api',routes)
+app.use('/api',routes);
 
 // Exportar modulo (fichero actual)
 module.exports = app;

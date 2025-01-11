@@ -1,30 +1,18 @@
-'use strict'
+'use strict';
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+var mongoose = require('mongoose');
+var app = require('./app');
+var port = process.env.PORT || 3900;
 
-var app = require('./app')
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log('Conectado a la base de datos');
 
-const client = new MongoClient(process.env.Mongo_URI, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
+    app.listen(port, () => {
+        console.log('Servidor corriendo en http://localhost:' + port);
+    }); // Incia el server
+})
+.catch(err => {
+    console.error('Error conectando a la base de datos:', err);
+    process.exit(1); // Termina el proceso con un error
 });
-
-async function run(){
-    try{
-        await client.connect()
-        console.log('Conectado a la Base de Datos')
-
-        app.listen(process.env.PORT , () => {
-            console.log('Servidor corriendo en http://localhost:'+process.env.PORT);
-        })
-    } catch (error){
-        console.error('Error en la conexion: ', error)
-    } finally{
-        await client.close()
-    }
-}
-
-run()
