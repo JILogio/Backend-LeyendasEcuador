@@ -3,6 +3,8 @@
 // Modulos node para crear servidor
 var express = require('express');
 var bodyParser = require('body-parser');
+var swaggerUi = require('swagger-ui-express');
+var swaggerDocument = require('./swagger.json');
 require('dotenv').config();
 
 // Ejecutar express (http)
@@ -27,6 +29,9 @@ app.use((req, res, next) => {
 
 // Añadir prefijos a rutas / Cargar rutas
 app.use('/api',routes);
+
+// Rutas Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Exportar modulo (fichero actual)
 module.exports = app;

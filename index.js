@@ -9,7 +9,8 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('Conectado a la base de datos');
 
     app.listen(port, () => {
-        console.log('Servidor corriendo en http://localhost:' + port);
+        console.log(`Servidor corriendo en http://localhost:${port}`);
+        console.log(`Documentación Swagger en http://localhost:${port}/api-docs`);
     }); // Incia el server
 })
 .catch(err => {

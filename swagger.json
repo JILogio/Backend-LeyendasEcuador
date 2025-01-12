@@ -1,0 +1,234 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Gestión de Rankings de Cantuña y Padre Almeida",
+      "description": "Documentación de la API para gestionar las colecciones \"Cantuña\" y \"Padre Almeida\".",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3900",
+        "description": "Gestión de Rankigns"
+      }
+    ],
+    "paths": {
+      "/api/cantunia/all": {
+        "get": {
+          "summary": "Obtener todos los registros de Cantuña",
+          "tags": [
+            "Cantuña"
+          ],
+          "responses": {
+            "200": {
+              "description": "Datos recuperados con éxito.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "stars": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Error al recuperar los datos."
+            }
+          }
+        }
+      },
+      "/api/cantunia/add": {
+        "post": {
+          "summary": "Agregar un nuevo registro a Cantuña",
+          "tags": [
+            "Cantuña"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "stars": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Registro añadido exitosamente."
+            },
+            "400": {
+              "description": "Datos inválidos."
+            },
+            "500": {
+              "description": "Error del servidor."
+            }
+          }
+        }
+      },
+      "/api/cantunia/{id}": {
+        "delete": {
+          "summary": "Eliminar un registro de Cantuña por ID",
+          "tags": [
+            "Cantuña"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID del registro a eliminar"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Registro eliminado exitosamente."
+            },
+            "404": {
+              "description": "Registro no encontrado."
+            },
+            "500": {
+              "description": "Error del servidor."
+            }
+          }
+        }
+      },
+      "/api/father/all": {
+        "get": {
+          "summary": "Obtener todos los registros de Father",
+          "tags": [
+            "Padre Almeida"
+          ],
+          "responses": {
+            "200": {
+              "description": "Datos recuperados con éxito.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "stars": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Error al recuperar los datos."
+            }
+          }
+        }
+      },
+      "/api/father/add": {
+        "post": {
+          "summary": "Agregar un nuevo registro a Father",
+          "tags": [
+            "Padre Almeida"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "stars": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Registro añadido exitosamente."
+            },
+            "400": {
+              "description": "Datos inválidos."
+            },
+            "500": {
+              "description": "Error del servidor."
+            }
+          }
+        }
+      },
+      "/api/father/{id}": {
+        "delete": {
+          "summary": "Eliminar un registro de Father por ID",
+          "tags": [
+            "Padre Almeida"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID del registro a eliminar"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Registro eliminado exitosamente."
+            },
+            "404": {
+              "description": "Registro no encontrado."
+            },
+            "500": {
+              "description": "Error del servidor."
+            }
+          }
+        }
+      }
+    }
+  }
