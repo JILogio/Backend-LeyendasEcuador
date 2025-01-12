@@ -89,6 +89,18 @@ MONGO_URI=mongodb+srv://<usuario>:<contraseña>@cluster0.mongodb.net/Cantunia?re
 
 ---
 
+## Documentación de la API con Swagger
+
+Esta aplicación utiliza Swagger para generar una documentación interactiva de la API. Puedes acceder a la documentación visitando la siguiente URL después de iniciar el servidor:
+
+```
+http://localhost:3900/api-docs
+```
+
+La documentación proporciona una descripción detallada de cada endpoint, incluyendo los parámetros requeridos, respuestas y ejemplos.
+
+---
+
 ## Endpoints de la API
 
 | Método | Endpoint             | Descripción                              |
